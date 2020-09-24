@@ -23,20 +23,18 @@ player <- function(
     "Navigator",
     "Climber"
   )),
-  waterLevel = factor(
-    dplyr::case_when(
-      role == "Water Carrier" ~ 5,
-      role == "Climber" ~ 3, 
-      role == "Archaeologist" ~ 3, 
-      TRUE ~ 4
+  waterLevel = dplyr::case_when(
+      role == "Water Carrier" ~ 5L,
+      role == "Climber" ~ 3L, 
+      role == "Archaeologist" ~ 3L, 
+      TRUE ~ 4L
       ),
-    levels = -1:(dplyr::case_when(
-      role == "Water Carrier" ~ 5,
-      role == "Climber" ~ 3, 
-      role == "Archaeologist" ~ 3, 
-      TRUE ~ 4
-      ))
-    ), 
+  maxWaterLevel = dplyr::case_when(
+      role == "Water Carrier" ~ 5L,
+      role == "Climber" ~ 3L, 
+      role == "Archaeologist" ~ 3L, 
+      TRUE ~ 4L
+      ), 
   actionsRemaining = 4L,
   digPower = dplyr::case_when(
     role == "Archaeologist" ~ 2L,
@@ -53,6 +51,7 @@ player <- function(
                         "Navigator","Climber"))
   
   attr(role, "waterLevel") <- waterLevel
+  attr(role, "maxWaterLevel") <- maxWaterLevel
   attr(role, "actionsRemaining") <- actionsRemaining
   attr(role, "digPower") <- digPower
   attr(role, "canClimb") <- canClimb
