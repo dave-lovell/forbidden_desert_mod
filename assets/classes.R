@@ -41,6 +41,8 @@ player <- function(
     role == "Archaeologist" ~ 2L,
     TRUE ~ 1L
   ),
+  location = vector(mode = "integer", length = 2),
+  cards = list(),
   canClimb = dplyr::case_when(
       role == "Climber" ~ TRUE,
       TRUE ~ FALSE
