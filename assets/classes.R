@@ -6,6 +6,7 @@ card <- function(name = character(),
                  description = character(),
                  effect = NULL)
   {
+  class(effect) <- "card"
   attr(effect, "name") <- name
   attr(effect, "description") <- description
   
@@ -50,6 +51,7 @@ player <- function(
                         "Meteorologist","Archaeologist",
                         "Navigator","Climber"))
   
+  class(role) <- "player"
   attr(role, "waterLevel") <- waterLevel
   attr(role, "maxWaterLevel") <- maxWaterLevel
   attr(role, "actionsRemaining") <- actionsRemaining
