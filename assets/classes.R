@@ -57,6 +57,8 @@ player <- function(
   attr(role, "waterLevel") <- waterLevel
   attr(role, "maxWaterLevel") <- maxWaterLevel
   attr(role, "actionsRemaining") <- actionsRemaining
+  attr(role, "location") <- location
+  attr(role, "cards") <- cards
   attr(role, "digPower") <- digPower
   attr(role, "canClimb") <- canClimb
   
