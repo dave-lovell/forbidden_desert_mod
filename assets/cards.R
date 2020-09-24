@@ -6,7 +6,9 @@ secret_water_reserve <- card(
   effect <- function(player){
     attr(player, "location") -> cardPlayerTile
     
-    allPlayers <<- lapply(allPlayers,
+    assign("allPlayers", 
+           envir = globalenv(),
+           value = lapply(allPlayers,
                              function(thisPlayer) {
                                if(identical(
                                  attr(thisPlayer, "location"),
@@ -14,6 +16,6 @@ secret_water_reserve <- card(
                                  thisPlayer <- give_water(thisPlayer, 2)
                                }
                                return(thisPlayer)
-                             })
+                             }))
     }
 )
